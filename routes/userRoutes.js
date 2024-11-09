@@ -15,7 +15,7 @@ router.get('/registros', getRegistro);
 router.post('/registros', createRegistro);
 router.get('/bancos', getBancos);
 router.post('/bancos', createBancos);
-router.post('/bancos', editBancos);
+router.put('/bancos/:id', editBancos);
 
 
 
