@@ -3,6 +3,7 @@ const express = require('express');
 const { createUser, getUsers } = require('../controllers/userController');
 const { createRegistro, getRegistro } = require('../controllers/registrosController');
 const { loginUser } = require('../controllers/authController');
+const { getBancos, createBancos, editBancos } = require('../controllers/bancosController');
 
 const router = express.Router();
 
@@ -12,5 +13,10 @@ router.get('/users', getUsers);     // Ruta para obtener todos los usuarios
 router.post('/login', loginUser);
 router.get('/registros', getRegistro);
 router.post('/registros', createRegistro);
+router.get('/bancos', getBancos);
+router.post('/bancos', createBancos);
+router.post('/bancos', editBancos);
+
+
 
 module.exports = router;
