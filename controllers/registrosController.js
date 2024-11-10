@@ -22,5 +22,21 @@ const getRegistro = async (req, res) => {
     }
 };
 
+// Eliminar un registro por ID
+const deleteRegistrosByEmail = async (req, res) => {
+    try {
+      const { email } = req.params;
+      const registrosEliminados = await Registro.deleteMany({ user: email });
+  
+      if (registrosEliminados.deletedCount === 0) {
+        return res.status(404).json({ message: 'No se encontraron registros para este usuario' });
+      }
+  
+      res.status(200).json({ message: 'Registros eliminados exitosamente' });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  };
+
 // Exportar las funciones para que estén disponibles
-module.exports = { createRegistro, getRegistro };
+module.exports = { createRegistro, getRegistro, deleteRegistrosByEmail};

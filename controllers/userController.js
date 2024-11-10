@@ -22,5 +22,20 @@ const getUsers = async (req, res) => {
     }
 };
 
+// Función para eliminar un usuario por su ID
+const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await User.findByIdAndDelete(id);
+        if (!user) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+        res.status(200).json({ message: 'Usuario eliminado correctamente' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+
 // Exportar las funciones para que estén disponibles
-module.exports = { createUser, getUsers };
+module.exports = { createUser, getUsers, deleteUser};
