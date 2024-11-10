@@ -1,7 +1,7 @@
 // routes/userRoutes.js
 const express = require('express');
-const { createUser, getUsers } = require('../controllers/userController');
-const { createRegistro, getRegistro } = require('../controllers/registrosController');
+const { createUser, getUsers, deleteUser } = require('../controllers/userController');
+const { createRegistro, getRegistro, deleteRegistro } = require('../controllers/registrosController');
 const { loginUser } = require('../controllers/authController');
 
 const router = express.Router();
@@ -12,5 +12,7 @@ router.get('/users', getUsers);     // Ruta para obtener todos los usuarios
 router.post('/login', loginUser);
 router.get('/registros', getRegistro);
 router.post('/registros', createRegistro);
+router.delete('/users/:id', deleteUser);
+router.delete('/registros/:id', deleteRegistro);
 
 module.exports = router;
