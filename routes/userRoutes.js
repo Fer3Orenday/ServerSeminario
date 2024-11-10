@@ -1,7 +1,7 @@
 // routes/userRoutes.js
 const express = require('express');
 const { createUser, getUsers, deleteUser } = require('../controllers/userController');
-const { createRegistro, getRegistro, deleteRegistro } = require('../controllers/registrosController');
+const { createRegistro, getRegistro, deleteRegistrosByEmail } = require('../controllers/registrosController');
 const { loginUser } = require('../controllers/authController');
 
 const router = express.Router();
@@ -13,6 +13,6 @@ router.post('/login', loginUser);
 router.get('/registros', getRegistro);
 router.post('/registros', createRegistro);
 router.delete('/users/:id', deleteUser);
-router.delete('/registros/:id', deleteRegistro);
+router.delete('/registros/:email', deleteRegistrosByEmail);
 
 module.exports = router;
