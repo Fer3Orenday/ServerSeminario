@@ -3,6 +3,7 @@ const express = require('express');
 const { createUser, getUsers, deleteUser } = require('../controllers/userController');
 const { createRegistro, getRegistro, deleteRegistrosByEmail } = require('../controllers/registrosController');
 const { loginUser } = require('../controllers/authController');
+const { getBancos, createBancos, editBancos } = require('../controllers/bancosController');
 
 const router = express.Router();
 
