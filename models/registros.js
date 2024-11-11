@@ -21,6 +21,18 @@ const registroSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    montoPrestamo: {
+        type: Number,
+        required: true,
+    },
+    enganche: {
+        type: Number,
+        required: true,
+    },
+    totalPagar: {
+        type: Number,
+        required: true,
+    },
 });
 
 const User = mongoose.model('Registro', registroSchema);
